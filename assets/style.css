@@ -126,7 +126,7 @@ header {
 #banner .arrow {
 	position: absolute;
 }
-#banner .arrow_left {
+#banner .arrow_left {                                                                                                           
 	left: 10px;
 }
 #banner .arrow_right {
