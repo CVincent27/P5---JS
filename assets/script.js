@@ -23,6 +23,9 @@ let arrowRight = document.getElementById("rightArrow");
 let dots = document.querySelectorAll(".dot");
 let currentSlide = 0;
 
+let contentTagline = document.getElementById("content-tagline");
+let tagLine = "<p>${slides.tagLine}</p>";
+
 // Flèche gauche
 arrowLeft.addEventListener("click", function () {
 	currentSlide = (currentSlide - 1 + slides.length) % slides.length;
@@ -40,8 +43,9 @@ arrowRight.addEventListener("click", function () {
 function updateCarousel() {
 	// change la src de l'img
 	bannerImage.src = slides[currentSlide].image;
-	// change tagline
-	
+	// add tagline
+	contentTagline.innerHTML = tagLine;
+
 
 	dots.forEach((dot, index) => {
 		if (index === currentSlide) {
