@@ -66,6 +66,11 @@ function updateCarousel() {
   contentTagline.innerHTML = slides[currentSlide].tagLine;
 
   dots.forEach((dot, index) => {
+    dot.addEventListener("click", function() {
+      // index = indice du point dans la boucle (= position du point ds le tableau dots)
+      currentSlide = index;
+      updateCarousel();
+    });
     if (index === currentSlide) {
       dot.classList.add("dot_selected");
     } else {
