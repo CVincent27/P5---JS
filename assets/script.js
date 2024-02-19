@@ -65,18 +65,6 @@ function updateCarousel() {
   }
   contentTagline.innerHTML = slides[currentSlide].tagLine;
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", function() {
-      // index = indice du point dans la boucle (= position du point ds le tableau dots)
-      currentSlide = index;
-      updateCarousel();
-    });
-    if (index === currentSlide) {
-      dot.classList.add("dot_selected");
-    } else {
-      dot.classList.remove("dot_selected");
-    }
-  });
 }
 
 function createDots() {
@@ -86,8 +74,15 @@ function createDots() {
     if (i === 0) {
       dot.classList.add("dot_selected");
     }
-
     dotsContainer.appendChild(dot);
+
+    dot.addEventListener("click", function() {
+      // index = indice du point dans la boucle (= position du point ds le tableau dots)
+      currentSlide = i;
+      updateCarousel();
+      const previousSelectedDot = document.querySelector(".dot_selected")
+      previousSelectedDot.classList.remove("dot_selected");
+      dot.classList.add("dot_selected");
+    });
   }
-  dots = document.querySelectorAll(".dot")
 }
