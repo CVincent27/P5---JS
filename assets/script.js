@@ -18,7 +18,7 @@ const slides = [
   },
 ];
 
-let dots;
+let dots = []; 
 let bannerImage = document.getElementById("banner-img");
 const arrowLeft = document.getElementById("leftArrow");
 const arrowRight = document.getElementById("rightArrow");
@@ -33,17 +33,18 @@ updateCarousel();
 // Flèche gauche
 arrowLeft.addEventListener("click", function () {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  // % à expliquer
   updateCarousel();
+  updateDots(currentSlide); 
 });
 
 // Flèche droite
 arrowRight.addEventListener("click", function () {
   currentSlide = (currentSlide + 1) % slides.length; 
   updateCarousel();
+  updateDots(currentSlide);
 });
 
-// Mettre à jour le carroussel
+// Mettre à jour le carrousel
 function updateCarousel() {
   if (!bannerImage) {
     const img = document.createElement("img");
@@ -64,7 +65,6 @@ function updateCarousel() {
     contentTagline = document.getElementById("content-tagline");
   }
   contentTagline.innerHTML = slides[currentSlide].tagLine;
-
 }
 
 function createDots() {
@@ -75,14 +75,23 @@ function createDots() {
       dot.classList.add("dot_selected");
     }
     dotsContainer.appendChild(dot);
+    dots.push(dot); // Ajoutez le dot au tableau dots
 
     dot.addEventListener("click", function() {
       // index = indice du point dans la boucle (= position du point ds le tableau dots)
       currentSlide = i;
       updateCarousel();
-      const previousSelectedDot = document.querySelector(".dot_selected")
-      previousSelectedDot.classList.remove("dot_selected");
-      dot.classList.add("dot_selected");
+      updateDots(currentSlide);
     });
   }
+}
+
+function updateDots(index) {
+  dots.forEach((dot, i) => {
+      if (i === index) {
+          dot.classList.add('dot_selected');
+      } else {
+          dot.classList.remove('dot_selected'); 
+      }
+  });
 }
