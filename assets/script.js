@@ -1,6 +1,6 @@
 const slides = [
   {
-    image: "/assets/images/slideshow/slide1.jpg",
+    image: "./assets/images/slideshow/slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
   },
   {
