@@ -4,9 +4,8 @@ const slides = [
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
   },
   {
-    image: "./assets/images/slideshow/slide2.jpg",
-    tagLine:
-      "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+    image: "./assets/images/slideshow/slide1.jpg",
+    tagLine: "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
   },
   {
     image: "./assets/images/slideshow/slide3.jpg",
