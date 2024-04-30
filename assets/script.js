@@ -75,7 +75,7 @@ function createDots() {
       dot.classList.add("dot_selected");
     }
     dotsContainer.appendChild(dot);
-    dots.push(dot); // Ajoutez le dot au tableau dots
+    dots.push(dot); // Ajoute le dot au tableau dots
 
     dot.addEventListener("click", function() {
       // index = indice du point dans la boucle (= position du point ds le tableau dots)
